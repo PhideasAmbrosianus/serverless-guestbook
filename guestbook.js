@@ -58,6 +58,7 @@ const guestbook = {
   // intercept the click on the submit button, add the guestbook entry and
   // reload entries on success
   $(document).on('submit', '#addEntry', function(e) {
+    console.log("Click Event");
     e.preventDefault();
 
     guestbook.add(
@@ -66,6 +67,7 @@ const guestbook = {
       $('#comment').val().trim()
     ).done(function(result) {
       // reload entries
+      console.log("Data was successfully sent, updating page with results");
       loadEntries();
     }).error(function(error) {
       console.log(error);
@@ -73,6 +75,7 @@ const guestbook = {
   });
 
   $(document).ready(function() {
+    console.log("HTML Page loaded successfully");
     prepareTemplates();
     loadEntries();
   });
